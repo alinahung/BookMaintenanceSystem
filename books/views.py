@@ -101,7 +101,7 @@ def delete_book(request, pk=None):
     return redirect(reverse('book_search'))  
 
 
-# 書籍借閱記錄
+# 書籍的借閱記錄
 def lend_record(request, pk):
     records = BookLendRecord.objects.filter(book=pk).order_by("-borrow_date")
     for record in records:
