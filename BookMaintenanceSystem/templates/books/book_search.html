@@ -1,0 +1,90 @@
+{% extends "../base/base.html" %}
+
+{% block title %}
+<title>書籍查詢頁面</title>
+{% endblock %}
+
+{% block content %}
+    <h1>書籍查詢</h1>
+    
+    <!-- 使用 POST 方法提交表單 -->
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                {{ form.as_p }}
+                <hr>
+                <button type="submit" onclick="submitForm()">查詢</button> <!-- 執行表單提交 -->
+                <button type="reset" onclick="clearForm()">清除</button> <!-- 重設表單 -->
+                <button type="button" onclick="navigateToCreate()">新增</button> <!-- 導航至新增頁面 -->
+            </div>
+        </div>
+    </form>
+
+    <!-- 顯示書籍數據 -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>書籍類別</th>
+                <th>書名</th>
+                <th>出版日期</th>
+                <th>借閱狀態</th>
+                <th>借閱人</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.category_name }}</td>
+                {% if book.id == None %}
+                    <td>{{ book.name }}</td>
+                {% else %}
+                    <td><a href="{% url 'book_detail' book.id %}">{{ book.name }}</td>
+                {% endif %}
+                <td>{{ book.publish_date|date:"Y/m/d" }}</td>
+                <td>{{ book.status_name }}</td>
+                <td>{{ book.keeper_name }}</td>
+                <td>
+                    {% if book.id == None %}
+                        <button onclick="window.location.href='{% url 'Book' %}'">借閱紀錄</button>
+                        <button onclick="window.location.href='{% url 'Book' %}'">編輯</button> 
+                    {% else %}
+                        <button onclick="window.location.href='{% url 'lend_record' book.id %}'">借閱紀錄</button>
+                        <button onclick="window.location.href='{% url 'edit_book' book.id %}'">編輯</button> 
+                    {% endif %}
+                    {% if book.status_name == '已借出' %}
+                        <button onclick="alert('已借出無法刪除');">刪除</button>
+                    {% else %}
+                        <button onclick="confirm('是否刪除' + '{{book.name}}' + '？') ? alert('刪除成功') : alert('已取消');">刪除</button>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        function submitForm() {
+            // 提交表單
+            document.querySelector('form').submit();
+        }
+        function clearForm() {
+            // 清除表單
+            document.querySelector('form').reset();
+        }
+        function navigateToCreate() {
+            // 導航至新增書籍的頁面
+            window.location.href = '/create_book/';
+        }
+        function handleDelete(url) {
+            // 處理刪除操作的確認
+            if(confirm('確認刪除？')) {
+                window.location.href = url;
+            } else {
+                alert('取消');
+            }
+        }
+    </script>
+{% endblock %}
+

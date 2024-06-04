@@ -1,0 +1,43 @@
+{% extends "../base/base.html" %}
+
+{% block title %}
+<title>書籍介面</title>
+{% endblock %}
+
+{% block content %}
+<br>
+    <br>
+    <br>
+    <!-- 書籍操作按鈕 -->
+    <button onclick="window.location.href='{% url 'Book' %}'">回書籍查詢</button>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <!-- 表單內容顯示 -->
+                {{ form }}
+                <!-- 根據編輯模式顯示對應按鈕 -->
+                {% if edit == 1 %}
+                    <hr class="mb-3">
+                    <button type="submit">修改</button>
+                {% elif edit == 2 %}
+                    <hr class="mb-3">
+                    <button type="submit">新增</button>
+                {% elif edit == 3 %}
+                    <hr class="mb-3">
+                    <!-- 判斷書籍狀態並應對刪除操作 -->
+                    {% if book.status.code_id == 'B' %}
+                        <button type="button" onclick="alert('已借出無法刪除');">刪除</button>
+                    {% else %}
+                        <button type="button" onclick="confirm('是否刪除' + '{{ book.name }}' + '？') ? alert('刪除成功') : alert('已取消');">刪除</button>
+                    {% endif %}
+                    <button type="submit">存檔</button>
+                {% endif %}
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+
+
+
