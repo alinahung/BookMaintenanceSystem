@@ -93,7 +93,7 @@ def edit_book(request, pk):
     
 
 
-# 刪除書籍
+#  刪除書籍
 def delete_book(request, pk=None):
    
     book = get_object_or_404(BookData, pk=pk)
