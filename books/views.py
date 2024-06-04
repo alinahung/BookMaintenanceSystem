@@ -34,7 +34,7 @@ def book_search(request):
     return render(request, "books/book_search.html", locals())
 
 def book_detail(request, pk):
-    """顯示書籍的詳細信息，僅用於展示，不處理表單提交。"""
+    # 顯示書籍的詳細信息，僅用於展示，不處理表單提交
     book = get_object_or_404(BookData, pk=pk)  # 確保書籍存在
     if request.method == 'POST':
         # 如果有資料提交，更新書籍信息
