@@ -2,11 +2,19 @@
 
 {% block title %}
 <title>書籍查詢頁面</title>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/books.css' %}">
+<script src="{% static 'js/scripts.js' %}"></script>
+{% endblock %}
+
+{% block head %}
+
 {% endblock %}
 
 {% block content %}
     <h1>書籍查詢</h1>
-    
+
     <!-- 使用 POST 的方法提交表單 -->
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
