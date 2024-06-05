@@ -15,8 +15,8 @@ def book_search(request):
                 condition &= Q(name__icontains=name)
             if category := request.POST.get('category'):
                 condition &= Q(category_id=category)
-            if keeper_name := request.POST.get('keeper_name'):
-                condition &= Q(keeper_id=keeper_name)
+            if keeper_id := request.POST.get('keeper_id'):
+                condition &= Q(keeper_id=keeper_id)
             if status := request.POST.get('status'):
                 condition &= Q(status_id=status)
             books = BookData.objects.filter(condition).order_by("id")
@@ -98,7 +98,7 @@ def delete_book(request, pk=None):
    
     book = get_object_or_404(BookData, pk=pk)
     book.delete()
-    return redirect(reverse('book_search'))  
+    return redirect(reverse('Book'))  
 
 
 # 書籍的借閱記錄

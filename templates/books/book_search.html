@@ -64,7 +64,8 @@
                     {% if book.status_name == '已借出' %}
                         <button onclick="alert('已借出無法刪除');">刪除</button>
                     {% else %}
-                        <button onclick="confirm('是否刪除' + '{{book.name}}' ) ? alert('刪除成功') : alert('已取消');">刪除</button>
+                        <button onclick="handleDelete({{ book.id }})">刪除</button>
+                        {% comment %} <button onclick="confirm('是否刪除' + '{{book.name}}' ) ? alert('刪除成功') : alert('已取消');">刪除</button> {% endcomment %}
                     {% endif %}
                 </td>
             </tr>
@@ -72,7 +73,7 @@
         </tbody>
     </table>
 
-    <script>
+     <script>
         function submitForm() {
             // 提交表單
             document.querySelector('form').submit();
@@ -85,14 +86,14 @@
             // 導航至新增書籍的頁面
             window.location.href = '/create_book/';
         }
-        function handleDelete() {
+        function handleDelete(bookId) {
             // 處理刪除操作的確認
             if(confirm('確認刪除？')) {
-                window.location.href ='/delete_book/';
+                window.location.href ='/delete_book/' + bookId ;
             } else {
                 alert('取消');
             }
         }
-    </script>
+    </script> 
 {% endblock %}
 
