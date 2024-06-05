@@ -2,6 +2,9 @@
 
 {% block title %}
 <title>書籍查詢頁面</title>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/books.css' %}">
+<script src="{% static 'js/scripts.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -64,7 +67,7 @@
         </tbody>
     </table>
 
-    <script>
+    {% comment %} <script>
         function submitForm() {
             // 提交表單
             document.querySelector('form').submit();
@@ -85,6 +88,6 @@
                 alert('取消');
             }
         }
-    </script>
+    </script> {% endcomment %}
 {% endblock %}
 
