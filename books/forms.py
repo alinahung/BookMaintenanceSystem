@@ -5,6 +5,14 @@ from .models import BookData, BookCategory, BookCode, BookLendRecord
 from django.forms import ModelForm, DateInput, TextInput, Select, Textarea
 
 class BookForm(ModelForm):
+    
+    keeper_id = forms.ChoiceField(
+        label = "借閱人",
+        choices=[("", "請選擇")] + [(student.id, student.username) for student in Student.objects.all()],
+        required=False,
+        widget=forms.Select(attrs={"class": "form-control", "id": "keeper_id"})
+    )
+    
     class Meta:
         model = BookData
         fields = ['name', 'category', 'author', 'publisher', 'publish_date', 'summary', 'keeper_id', 'status']
@@ -70,6 +78,14 @@ class BookForm(ModelForm):
 
 
 class SearchForm(ModelForm):
+    
+    keeper_id = forms.ChoiceField(
+        label = "借閱人",
+        choices=[("", "請選擇")] + [(student.id, student.username) for student in Student.objects.all()],
+        required=False,
+        widget=forms.Select(attrs={"class": "form-control", "id": "keeper_id"})
+    )
+    
     class Meta:
         model = BookData
         fields = ['name', 'category', 'keeper_id', 'status']

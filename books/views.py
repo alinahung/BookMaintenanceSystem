@@ -6,7 +6,7 @@ from .forms import SearchForm, BookForm
 from accounts.models import Student
 
 def book_search(request):
-    """書籍搜尋的視圖，根據表單條件過濾書籍列表。"""
+    #書籍搜尋的視圖，根據表單條件過濾書籍列表。
     try:
         if request.method == "POST":
             form = SearchForm(request.POST)
