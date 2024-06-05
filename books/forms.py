@@ -70,7 +70,7 @@ class BookForm(ModelForm):
 
     @staticmethod
     def get_keeper_choices():
-        return [(student.studentId, student.username) for student in Student.objects.all()]
+        return [(student.id, student.username) for student in Student.objects.all()]
 
     @staticmethod
     def get_status_choices():

@@ -57,7 +57,7 @@ def create_book(request):
         
         form = BookForm(request.POST)
         if form.is_valid():
-            
+            form.keeper_id = int(form.cleaned_data['keeper_id'])
             new_book = form.save(commit=True)
             return redirect(reverse('Book'))
         
@@ -78,6 +78,7 @@ def edit_book(request, pk):
     if request.method == 'POST':
         form = BookForm(request.POST, instance=book)  # 使用POST數據填充表單
         if form.is_valid():  # 驗證表單數據
+            form.keeper_id = int(form.cleaned_data['keeper_id'])
             form.save()  # 保存表單更改
             return redirect(reverse('book_detail', kwargs={'pk': pk}))  # 重定向到書籍詳情頁面
     else:
