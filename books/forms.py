@@ -3,6 +3,8 @@ from accounts.models import Student
 from django.contrib.auth.models import User
 from .models import BookData, BookCategory, BookCode, BookLendRecord
 from django.forms import ModelForm, DateInput, TextInput, Select, Textarea
+from django.core.exceptions import ValidationError
+from datetime import date
 
 class BookForm(ModelForm):
     
@@ -38,7 +40,8 @@ class BookForm(ModelForm):
     
     def clean_publish_date(self):
         publish_date = self.cleaned_data.get('publish_date')
-        # Validation logic can be included here
+        if publish_date and publish_date > date.today():
+            raise ValidationError('出版日期不能超過今天。')
         return publish_date
     
     def __init__(self, *args, **kwargs):
