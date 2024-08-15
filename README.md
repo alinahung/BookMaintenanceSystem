@@ -25,7 +25,7 @@
 
 ## 實作照片
 
-**書籍查詢介面**
+- **書籍查詢介面**
 <p align="center">
   <img width="500" alt="image" src="https://github.com/user-attachments/assets/e79e5c25-8261-48fd-8d30-41586554c414">
   <br>
@@ -34,8 +34,8 @@
   <img width="500" alt="image" src="https://github.com/user-attachments/assets/381fda82-6f40-4315-8bed-763280be95be">
   <br>
 </p>
-
-**書籍明細介面、借閱管理**
+<br></br>
+- **書籍明細介面、借閱管理**
 <p align="center">
   <img width="500" alt="image" src="https://github.com/user-attachments/assets/893b246a-9587-4a8f-b493-262866989e26">
   <br>
