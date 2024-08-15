@@ -25,17 +25,16 @@
 
 ## 實作照片
 <p align="center">
-  <img width="382" alt="image" src="https://github.com/user-attachments/assets/e79e5c25-8261-48fd-8d30-41586554c414">
+  <img width="500" alt="image" src="https://github.com/user-attachments/assets/e79e5c25-8261-48fd-8d30-41586554c414">
   <br>
-  （書籍查詢）
 </p>
 <p align="center">
-  <img width="394" alt="image" src="https://github.com/user-attachments/assets/381fda82-6f40-4315-8bed-763280be95be">
+  <img width="500" alt="image" src="https://github.com/user-attachments/assets/381fda82-6f40-4315-8bed-763280be95be">
   <br>
-  （借閱紀錄/編輯/刪除）
+  （書籍查詢介面）
 </p>
 <p align="center">
-  <img width="280" alt="image" src="https://github.com/user-attachments/assets/893b246a-9587-4a8f-b493-262866989e26">
+  <img width="500" alt="image" src="https://github.com/user-attachments/assets/893b246a-9587-4a8f-b493-262866989e26">
   <br>
-  （修改書籍明細）
+  （編輯、更新、刪除書籍的借閱狀態、書名、借閱人、借閱日期等信息）
 </p>
