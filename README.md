@@ -27,12 +27,13 @@
 
 - **書籍查詢介面**
 <p align="center">
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/e79e5c25-8261-48fd-8d30-41586554c414">
+  <img width="800" alt="image" src="https://github.com/user-attachments/assets/e79e5c25-8261-48fd-8d30-41586554c414">
   <br>
 </p>
 <p align="center">
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/381fda82-6f40-4315-8bed-763280be95be">
+  <img width="800" alt="image" src="https://github.com/user-attachments/assets/381fda82-6f40-4315-8bed-763280be95be">
   <br>
+  (根據書名、類別、狀態等關鍵字進行搜索)
 </p>
 <br></br>
 
@@ -40,4 +41,5 @@
 <p align="center">
   <img width="500" alt="image" src="https://github.com/user-attachments/assets/893b246a-9587-4a8f-b493-262866989e26">
   <br>
+  (編輯、更新、刪除書籍的相關信息）
 </p>
